@@ -1,0 +1,71 @@
+abstract class KimBab{
+    description "Unknown Beverage":String
+    +getDescription():String
+    +cost():double
+}
+
+class FriedEgg{
+    +FriedEgg()
+    +cost():double
+}
+
+class Kim{
+    +Kim
+    +cost():double
+}
+
+class Nude{
+    +Espresso()
+    +cost():double
+}
+
+abstract class IngredientDecorator{
+    +abstract getDescription():String
+}
+
+class Cheese{
+    +Cheese(Kimbab kimbab)
+    +getDescription():String
+    +cost():double
+}
+
+class Kimchi{
+    +Kimchi(Kimbab kimbab)
+    +getDescription():String
+    +cost():double
+}
+
+class Pork{
+    +Pork(Kimbab kimbab)
+    +getDescription():String
+    +cost():double
+}
+
+class Sausage{
+    +Sausage(Kimbab kimbab)
+    +getDesciption():String
+    +cost():double
+}
+
+class Shrimp{
+    +Shrimp(Kimbab kimbab)
+    +getDescription():String
+    +cost():double
+}
+
+class Tuna{
+    +Tuna(Kimbab kimbab)
+    +getDescription():String
+    +cost():double
+}
+
+KimBab <|-- Kim
+KimBab <|-- Nude
+KimBab <|-- FriedEgg
+KimBab <|-- IngredientDecorator
+IngredientDecorator <|-- Cheese
+IngredientDecorator <|-- Kimchi
+IngredientDecorator <|-- Pork
+IngredientDecorator <|-- Sausage
+IngredientDecorator <|-- Shrimp
+IngredientDecorator <|-- Tuna
