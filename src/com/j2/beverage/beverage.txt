@@ -1,0 +1,91 @@
+abstract class Beverage{
+    description "Unknown Beverage":String
+    +getDescription():String
+    +cost():double
+}
+
+class DarkRoast{
+    +DarkRoast()
+    +cost():double
+}
+
+class HouseBlend{
+    +HouseBlend()
+    +cost():double
+}
+
+class Espresso{
+    +Espresso()
+    +cost():double
+}
+
+class Decaf{
+    +Decaf()
+    +cost():double
+}
+
+abstract class CondimentDecorator{
+    +abstract getDescription():String
+}
+
+class Caramel{
+    +Caramel(Beverage beverage)
+    +getDescription():String
+    +cost():double
+}
+
+class CaramelSauce{
+    +CaramelSauce(Beverage beverage)
+    +getDescription():String
+    +cost():double
+}
+
+class Hazelnut{
+    +Hazelnut(Beverage beverage)
+    +getDescription():String
+    +cost():double
+}
+
+class Milk{
+    +Milk(Beverage beverage)
+    +getDesciption():String
+    +cost():double
+}
+
+class Mocha{
+    +Mocha(Beverage beverage)
+    +getDescription():String
+    +cost():double
+}
+
+class Soy{
+    +Soy(Beverage beverage)
+    +getDescription():String
+    +cost():double
+}
+
+class Water{
+    +Water(Beverage beverage)
+    +getDescription():String
+    +cost():double
+}
+
+class Whip{
+    +Whip(Beverage beverage)
+    +getDescription():String
+    +cost():double
+}
+
+Beverage <|-- DarkRoast
+Beverage <|-- HouseBlend
+Beverage <|-- Espresso
+Beverage <|-- Decaf
+Beverage <|-- CondimentDecorator
+CondimentDecorator <|-- Caramel
+CondimentDecorator <|-- CaramelSauce
+CondimentDecorator <|-- Hazelnut
+CondimentDecorator <|-- Milk
+CondimentDecorator <|-- Mocha
+CondimentDecorator <|-- Soy
+CondimentDecorator <|-- Water
+CondimentDecorator <|-- Whip
