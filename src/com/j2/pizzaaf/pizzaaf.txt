@@ -1,0 +1,301 @@
+class Pizza{
+    name:String
+    dough:Dough
+    sauce:Sauce
+    veggies[]:Veggies
+    cheese:Cheese
+    pepperoni:Pepperoni
+    clam:Clam
+    #prepare():void
+    bake():void
+    cut():void
+    box():void
+    setName(String):void
+    getName(String):void
+    +toString():String
+}
+
+Interface PizzaIngredientFactory{
+    +createDough():Dough
+    +createSauce():Sauce
+    +createVeggies():Veggies[]
+    +createPepperoni():Pepperoni
+    +createClam():Clams
+    +createPotato():Potato
+    +createShrimp():Shrimp
+}
+
+class PizzaStore{
+    #createPizza(String):Pizza
+    +orderPizza(String):Pizza
+}
+
+class ChicagoPizzaIngredientFactory{
+    +createDough():Dough
+    +createSauce():Sauce
+    +createCheese():Cheese
+    +createVeggies():Veggies[]
+    +createPepperoni():Pepperoni
+    +createClam():Clams
+    +createPotato():Potato
+    +createShrimp():Shrimp
+
+}
+
+class NYPizzaIngredientFactory{
+    +createDough():Dough
+    +createSauce():Sauce
+    +createCheese():Cheese
+    +createVeggies():Veggies[]
+    +createPepperoni():Pepperoni
+    +createClam():Clams
+    +createPotato():Potato
+    +createShrimp():Shrimp
+
+}
+
+class SMPizzaIngredientFactory{
+    +createDough():Dough
+    +createSauce():Sauce
+    +createCheese():Cheese
+    +createVeggies():Veggies[]
+    +createPepperoni():Pepperoni
+    +createClam():Clams
+    +createPotato():Potato
+    +createShrimp():Shrimp
+
+}
+
+class ChicagoPizzaStore{
+    #createPizza(String):Pizza
+}
+
+class NYPizzaStore{
+    #createPizza(String):Pizza
+}
+
+class SMPizzaStore{
+    #createPizza(String):Pizza
+}
+
+class CheesePizza{
+    ingredientFactory:PizzaIngredientFactory
+    +CheesePizza(PizzaIngredientFactory)
+    prepare():void
+}
+
+class ClamPizza{
+    ingredientFactory:PizzaIngredientFactory
+    +ClamPizza(PizzaIngredientFactory)
+    prepare():void
+}
+
+class PepperoniPizza{
+    ingredientFactory:PizzaIngredientFactory
+    +PepproniPizza(PizzaIngredientFactory)
+    prepare():void
+}
+
+class VeggiePizza{
+    ingredientFactory:PizzaIngredient
+    +VeggiePizza(PizzaIngredientFactory)
+    prepare():void
+}
+
+class PotatoPizza{
+    ingredientFactory:PizzaIngredient
+    +PotatoPizza(PizzaIngredientFactory)
+    prepare():void
+}
+
+class ShrimpPizza{
+    ingredientFactory:PizzaIngredient
+    +SHrimpPizza(PizzaIngredientFactory)
+    prepare():void
+}
+
+class BlackOlives{
+    +toString():String
+}
+
+class Eggplant{
+    +toStrign():String
+}
+
+class FreshClams{
+    +toString():String
+}
+
+class FrozenClams{
+    +toString():String
+}
+
+class Garlic{
+    +toString():String
+}
+
+class MarinaraSauce{
+    +toString():String
+}
+
+class MozzarellaCheese{
+    +toString():String
+}
+
+class Mushroom{
+    +toString():String
+}
+
+class Onion{
+    +toString():String
+}
+
+class PermesanCheese{
+    +toString:String
+}
+
+class PlumTomatoSauce{
+    +toString():String
+}
+
+class RedPepper{
+    +toString():String
+}
+
+class ReggianoCheese{
+    +toString():String
+}
+
+class SlicedPepperoni{
+    +toString():String
+}
+
+class Spinach{
+    +toString():String
+}
+
+class ThickCrustDough{
+    +toString():String
+}
+
+class ThinCrustDough{
+    +toString():String
+}
+
+class MashedPotato{
+    +toString():String
+}
+
+class SlicedPotato{
+    +toString():String
+}
+
+class FreshShrimps{
+    +toString():String
+}
+class FrozenShrimps{
+    +toString():String
+}
+
+Interface Cheese{
+    +toStrign():String
+}
+
+Interface Clam{
+    +toString():String
+}
+
+Interface Dough{
+    +toString():String
+}
+
+Interface Pepperoni{
+    +toString():String
+}
+
+Interface Sauce{
+    +toString:String
+}
+
+Interface Veggies{
+    +toString:String
+}
+
+Interface Potato{
+    +toString:String
+}
+
+Interface Shrimp{
+    +toString:String
+}
+
+PizzaStore -> Pizza
+PizzaStore <|-- ChicagoPizzaStore
+PizzaStore <|-- NYPizzaStore
+PizzaStore <|-- SMPizzaStore
+PizzaIngredientFactory <.. ChicagoPizzaStore
+PizzaIngredientFactory <.. NYPizzaStore
+PizzaIngredientFactory <.. SMPizzaStore
+PizzaIngredientFactory <|.. ChicagoPizzaIngredientFactory
+PizzaIngredientFactory <|.. NYPizzaIngredientFactory
+PizzaIngredientFactory <|.. SMPizzaIngredeintFactory
+PizzaIngredientFactory -> Dough
+PizzaIngredientFactory -> Cheese
+PizzaIngredientFactory -> Clam
+PizzaIngredientFactory -> Pepperoni
+PizzaIngredientFactory -> Sauce
+PizzaIngredientFactory -> Veggies
+PizzaIngredientFactory -> Shrimp
+PizzaIngredientFactory -> Potato
+Dough <.. ChicagoPizzaIngredientFactory
+Dough <.. NYPizzaIngredientFactory
+Dough <.. SMPizzaIngredientFactory
+Cheese <.. ChicagoPizzaIngredientFactory
+Cheese <.. NYPizzaIngredientFactory
+Cheese <.. SMPizzaIngredientFactory
+Clam <.. ChicagoPizzaIngredientFactory
+Clam <.. NYPizzaIngredientFactory
+Clam <.. SMPizzaIngredientFactory
+Pepperoni <.. ChicagoPizzaIngredientFactory
+Pepperoni <.. NYPizzaIngredientFactory
+Pepperoni <.. SMPizzaIngredientFactory
+Sauce <.. ChicagoPizzaIngredientFactory
+Sauce <.. NYPizzaIngredientFactory
+Sauce <.. SMPizzaIngredientFactory
+Veggies <.. ChicagoPizzaIngredientFactory
+Veggies <.. NYPizzaIngredientFactory
+Veggies <.. SMPizzaIngredientFactory
+Potato <.. ChicagoPizzaIngredientFactory
+Potato <.. NYPizzaIngredientFactory
+Potato <.. SMPizzaIngredientFactory
+Shrimp <.. ChicagoPizzaIngredientFactory
+Shrimp <.. NYPizzaIngredientFactory
+Shrimp <.. SMPizzaIngredientFactory
+Dough <|-- ThickCrustDough
+Dough <|-- ThinCrustDough
+Dough <|-- ThinCrustDough
+Cheese <|-- MozzarellaCheese
+Cheese <|-- ReggianoCheese
+Cheese <|-- PermesanCheese
+Clam <|-- FreshClams
+Clam <|-- FrozenClams
+Pepperoni <|-- SlicedPepperoni
+Sauce <|-- PlumTomatoSauce
+Sauce <|-- MarinaraSauce
+Veggies <|-- Garlic
+Veggies <|-- Onion
+Veggies <|-- RedPepper
+Veggies <|-- Spinach
+Veggies <|-- Eggplant
+Veggies <|-- BlackOlives
+Veggies <|-- Mushroom
+Potato <|-- MashedPotato
+Potato <|-- SlicedPotato
+Shrimp <|-- FreshShrimps
+Shrimp <|-- FrozenShrimps
+Pizza <|-- CheesePizza
+Pizza <|-- ClamPizza
+Pizza <|-- PepperoniPizza
+Pizza <|-- VeggiePizza
+Pizza <|-- PotatoPizza
+Pizza <|-- ShrimpPizza

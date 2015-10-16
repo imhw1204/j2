@@ -1,0 +1,8 @@
+package com.j2.pizzaaf;
+
+public class Mushroom implements Veggies {
+
+ public String toString() {
+  return "Mushrooms";
+ }
+}
