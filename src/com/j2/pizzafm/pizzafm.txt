@@ -1,0 +1,100 @@
+class PizzaStore{
+    -createPizza(String):Pizza
+    +orderPizza(String):Pizza
+}
+
+class Pizza{
+    name:String
+    dough:String
+    sauce:String
+    prepare():void
+    bake():void
+    cut():void
+    box():void
+    +getName():String
+    +toString():String
+}
+
+class ChicagoPizzaStore{
+    createPizza(String):Pizza
+}
+
+class NYPizzaStore{
+    createPizza(String):Pizza
+}
+
+class SMPizzaStore{
+    createPizza(String):Pizza
+}
+
+class ChicagoStyleCheesePizza{
+    +ChicagoStyleCheesePizza()
+    cut():void
+}
+
+class ChicagoStyleClamPizza{
+    +ChicagoStyleClamPizza()
+    cut():void
+}
+
+class ChicagoStylePepperoniPizza{
+    +ChicagoStylePepperoniPizza()
+    cut():void
+}
+
+class ChicagoStyleVeggiePizza{
+    +ChicagoStyleVeggiePizza()
+    cut():void
+}
+
+class NYStyleCheesePizza{
+    +NYStyleCheesePizza()
+    cut():void
+}
+
+class NYStyleClamPizza{
+    +NYStyleClamPizza()
+    cut():void
+}
+
+class NYStylePepperoniPizza{
+    +NYStylePepperoniPizza()
+    cut():void
+}
+
+class NYStyleVeggiePizza{
+    +NYStyleVeggiePizza()
+    cut():void
+}
+
+class SMStyleCheesePizza{
+    +SMStyleCheesePizza()
+    cut():void
+}
+
+class SMStylePotatoPizza{
+    +SMStylePotatoPizza()
+    cut():void
+}
+
+class SMStyleShrimpPizza{
+    +SMStyleShrimpPizza()
+    cut():void
+}
+
+
+PizzaStore <|-- ChicagoPizzaStore
+PizzaStore <|-- NYPizzaStore
+PizzaStore <|-- SMPizzaStore
+PizzaStore -> Pizza
+Pizza <|-- ChicagoStyleCheesePizza
+Pizza <|-- ChicagoStyleClamPizza
+Pizza <|-- ChicagoStylePepperoniPizza
+Pizza <|-- ChicagoStyleVeggiePizza
+Pizza <|-- NYStyleCheesePizza
+Pizza <|-- NYStyleClamPizza
+Pizza <|-- NYStylePepperoniPizza
+Pizza <|-- NYStyleVeggiePizza
+Pizza <|-- SMStyleCheesePizza
+Pizza <|-- SMStylePotatoPizza
+Pizza <|-- SMStyleShrimpPizza
