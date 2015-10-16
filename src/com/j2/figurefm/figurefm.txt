@@ -1,0 +1,76 @@
+class DrawingPerson{
+    -createFigure(String):Figure
+    +order(String):Figure
+}
+
+class Figure{
+    name:String
+    dimension:String
+    shadow:String
+    color:Strig
+    prepare():void
+    +getName():String
+    +toString():String
+}
+
+class Father{
+    createFigure(String):Figure
+}
+
+class Mother{
+    createFigure(String):Figure
+}
+
+class Me{
+    createFigure(String):Figure
+}
+
+class FatherStyleCircle{
+    +FatherStyleCircle()
+}
+
+class FatherStyleRectangle{
+    +FatherStyleRectangle()
+}
+
+class FatherStyleTriangle{
+    +FatherStyleTriangle()
+}
+
+class MotherStyleCircle{
+    +MotherStyleCircle()
+}
+
+class MotherStyleRectangle{
+    +MotherStyleRectangle()
+}
+
+class MotherStyleTriangle{
+    +MotherStyleTriangle()
+}
+
+class MyStyleCircle{
+    +MyStyleCircle()
+}
+
+class MyStyleRectangle{
+    +MyStyleRectangle()
+}
+
+class MyStyleTriangle{
+    +FMyStyleTriangle()
+}
+
+DrawingPerson <|-- Father
+DrawingPerson <|-- Mother
+DrawingPerson <|-- Me
+DrawingPerson -> Figure
+Figure <|-- FatherStyleRectangle
+Figure <|-- FatherStyleCircle
+Figure <|-- FatherStyleTriangle
+Figure <|-- MotherStyleRectangle
+Figure <|-- MotherStyleCircle
+Figure <|-- MotherStyleTriangle
+Figure <|-- MyStyleRectangle
+Figure <|-- MyStyleCircle
+Figure <|-- MyStyleTriangle
