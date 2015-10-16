@@ -1,0 +1,37 @@
+class SimplePizzaFactory{
+    +CreatePizza(String):Pizza
+}
+
+class PizzaStore{
+    -factory:SimpleFactory
+    +orderPizza(String):Pizza
+}
+
+class Pizza{
+    name:String
+    dough:String
+    sauce:String
+    toppings:ArrayList
+    +prepare():void
+    +bake():void
+    +cut():void
+    +box():void
+    +toString():String
+}
+
+class CheesePizza
+class ClamPizza
+class PepperoniPizza
+class PotatoPizza
+class VeggiePizza
+class ShrimpPizza
+
+Pizza <|-- CheesePizza
+Pizza <|-- ClamPizza
+Pizza <|-- PepperoniPizza
+Pizza <|-- PotatoPizza
+Pizza <|-- VeggiePizza
+Pizza <|-- ShrimpPizza
+
+SimplePizzaFactory-right-> Pizza
+PizzaStore -> SimplePizzaFactory
