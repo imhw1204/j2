@@ -1,0 +1,18 @@
+class Printer{
+    -empty:boolean
+    -isready:boolean
+    -static uniqueInstance:Printer
+    -static numCalled:int
+    
+    -Printer()
+    
+    -+static synchronized getInstance:Printer
+    
+    +sendToM():void
+    +ready():void
+    +sentToP():void
+    +print():void
+    
+    +isEmpty():boolean
+    +isReady():boolean
+}
