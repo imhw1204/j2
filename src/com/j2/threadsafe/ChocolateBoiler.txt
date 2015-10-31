@@ -1,0 +1,15 @@
+class ChocolateBoiler{
+    -empty:boolean
+    -boiled:boolean
+    -static uniqueInstance:ChocolateBoiler
+    -static numCalled:int
+    
+    -ChocolateBoiler()
+    +static synchronized getInstance():ChocolateBoiler
+    +fill():void
+    +drain():void
+    +boil():void
+    
+    +isEmpty():boolean
+    +isBoiled():boolean
+}
