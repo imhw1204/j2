@@ -1,0 +1,156 @@
+interface Command{
+    +execute():void
+    +undo():void
+}
+
+class NoCommand{
+    +execute():void
+    +undo():void
+}
+
+class Light{
+    location:String
+    +Light(Stirng)
+    +on():void
+    +off():void
+}
+
+class LightOnCommand{
+    light:Light
+    +LightOnCommand(Light)
+    +execute():void
+    +undo():void
+}
+
+class LightOffCommand{
+    light:Light
+    +LightOffCommand(Light)
+    +execute():void
+    +undo():void
+}
+
+class Stereo{
+    location:String
+    +Stereo(String)
+    +on():void
+    +off():void
+    +setCD():void
+    +setDVD():void
+    +setRadion():void
+    +setVolume(int):void
+}
+
+class StereoOnCommand{
+    stereo:Stereo
+    +StereoOnCommand(Stereo)
+    +execute():void
+    +undo():void
+}
+
+class StereoOffCommand{
+    stereo:Stereo
+    +StereoOffCommand(Stereo)
+    +execute():void
+    +undo():void
+}
+
+class TV{
+    location:String
+    +TV(String)
+    +on():void
+    +off():void
+    +setInputChannel(int)
+}
+
+class TVOnCommand{
+    tv:TV
+    +TVOnCommand(TV)
+    +execute():void
+    +undo():void
+}
+
+class TVOffCommand{
+    tv:TV
+    +TVOffCommand(TV)
+    +execute():void
+    +undo():void
+}
+
+class BeamProjecter{
+    location:String
+    +BeamProjecter(String)
+    +on():void
+    +off():void
+}
+
+class BeamProjecterOnCommand{
+    projecter:BeamProjecter
+    +BeamProjecterOnCommand(TV)
+    +execute():void
+    +undo():void
+}
+
+class BeamProjecterOffCommand{
+    projecter:BeamProjecter
+    +BeamProjecterOffCommand(TV)
+    +execute():void
+    +undo():void
+}
+
+class Hottub{
+    on:boolean
+    temperature:int
+    +Hottub(){}
+    +on():void
+    +off():void
+    +setTemperature(int):void
+}
+
+class HottubOnCommand{
+    hottub:Hottub
+    +HottubOnCommand(Hottub)
+    +execute():void
+    +undo():void
+}
+
+class MacroCommand{
+    commands:Command[]
+    +MacroCOmmand(Command[])
+    +execute():void
+    +undo():void
+}
+
+class RemoteControl{
+    onCommands:Command[]
+    offCommands:Command[]
+    command:undoCommand
+    +RemoteControl()
+    +setCommand(int,Command,Command)
+    +onButtonWasPushed(int):void
+    +offButtonWasPushed(int):void
+    +undoButtonWasPushed(int):void
+}
+
+Command <|.. NoCommand
+Command <|.. LightOnCommand
+Command <|.. LightOffCommand
+Command <|.. StereoOnCommand
+Command <|.. StereoOffCommand
+Command <|.. TVOnCommand
+Command <|.. TVOffCommand
+Command <|.. BeamProjecterOnCommand
+Command <|.. BeamProjecterOffCommand
+Command <|.. HottubOnCommand
+Command <|.. HottubOffCommand
+Command <|.. MacroCommand
+Light <-- LightOnCommand
+Light <-- LightOffCommand
+Stereo <-- StereoOnCommand
+Stereo <-- StereoOffCommand
+TV <-- TVOnCommand
+TV <-- TVOffCommand
+BeamProjecter <-- BeamProjecterOnCommand
+BeamProjecter <-- BeamProjecterOffCommand
+Hottub <-- HottubOnCommand
+Hottub <-- HottubOffCommand
+RemoteControl --> Command
