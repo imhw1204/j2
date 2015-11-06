@@ -1,0 +1,77 @@
+interface Command{
+    +execute():void
+    +undo():void
+}
+
+class NoCommand{
+    +execute():void
+    +undo():void
+}
+
+class Light{
+    location:String
+    level:int
+    +Light(String)
+    +on():void
+    +off():void
+    +dim(int):void
+    +getLevel():int
+}
+
+class LightOnCommand{
+    light:Light
+    level:int
+    +LightOnCOmmand(Light)
+    +execute():void
+    +undo():void
+}
+
+class LightOffCommand{
+    light:Light
+    level:int
+    +LightOffCOmmand(Light)
+    +execute():void
+    +undo():void
+}
+
+class DVDPlayer{
+    +DVDPlayer()
+    +open():void
+    +close():void
+}
+
+class DVDOpenCommand{
+    player:DVDPlayer
+    +DVDOpenCommand(DVDPlayer)
+    +execute():void
+    +undo():void
+}
+
+class DVDCloseCommand{
+    player:DVDPlayer
+    +DVDCloseCommand(DVDPlayer)
+    +execute():void
+    +undo():void
+}
+
+class RemoteControlWithUndo{
+    onCommands:Command[]
+    offCommands:Command[]
+    +RemoteControlWithUndo()
+    +setCommand(int,Command,Command)
+    +onButtonWasPushed(int):void
+    +offButtonWasPushed(int):void
+    +undoButtonWasPushed(int):void
+}
+
+Command <|.. NoCommand
+Command <|.. LightOnCommand
+Command <|.. LightOffCommand
+Command <|.. DVDOpenCommand
+Command <|.. DVDCloseCommand
+Light <-- LightOnCommand
+Light <-- LightOffCommand
+DVDPlayer <-- DVDOpenCommand
+DVDPlayer <-- DVDCloseCommand
+RemoteControlWithUndo -->Command
+
