@@ -1,0 +1,166 @@
+class Amplifier{
+    description:String
+    tuner:Tuner
+    dvd:DvdPlayer
+    cd:CdPlayer
+    mp3:MP3Player
+    +Amplifier(String)
+    +on():void
+    +off():void
+    +setVolume(int)
+    +setTuner(Tuner)
+    +setDvd(DvdPlayer)
+    +setCd(CdPlayer)
+    +setMP3(MP3Player)
+}
+
+class Tuner{
+    description:String
+    amplifier:Amplifier
+    frequency:double
+    +Tuner(String,Amplifier)
+    +on():void
+    +off():void
+    +setFrequency(double)
+    +setAm():void
+    +setPm():void
+}
+
+class CdPlayer{
+    description:String
+    currentTrack:int
+    amplifier:Amplifier
+    title:String
+    +CdPlayer(String,Amplifier)
+    +on():void
+    +off():void
+    +play(String):void
+    +pause():void
+}
+class DvdPlayer{
+    description:String
+    currentTrack:int
+    amplifier:Amplifier
+    title:String
+    DvdPlayer(String,Amplifer)
+    +on():void
+    +off():void
+    +play(String):void
+    +pause():void
+}
+
+class MP3Player{
+    description:String
+    amplifier:Amplifier
+    title:Stirng
+    +MP3Player(String,Amplifier)
+    +on():void
+    +off():void
+    +play(String):void
+    +pause():void
+}
+
+class DeskLamp{
+    description:String
+    +DeskLamp(String)
+    +on():void
+    +off():void
+    +dim(int):void
+}
+
+class LabTop{
+    description:String
+    +LapTop(String)
+    +on():void
+    +off():void
+}
+
+class MobilePhone{
+    description:String
+    +MobilePhone(String)
+    +on():void
+    +off():void
+}
+
+class Projector{
+    description:String
+    dvdPlayer:DvdPlayer
+    +Projector(String,DvdPlayer)
+    +on():void
+    +off():void
+    +wideScreenMode():void
+    +tvMode():void
+}
+
+class Screen{
+    description:String
+    +Screen(String):void
+    +up():void
+    +down():void
+    +toString():String
+}
+
+class StudyLights{
+    description:String
+    +StudyLights(String)
+    +on():void
+    +off():void
+    +dim(int):void
+}
+
+class TheaterLights{
+    description:String
+    +TheaterLights(String)
+    +on():void
+    +off():void
+    +dim(int):void
+}
+
+class HomeTheaterFacade{
+    amp:Amplifier
+    tuner:Tuner
+    dvd:DvdPlayer
+    cd:CdPlayer
+    projector:Projector
+    screen:Screen
+    lights:TheaterLights
+    +HomeTheaterFacade(Amplifier,Tuner,DvdPlayer,CdPlayer,Projector,Screen,TheaterLights)
+    +watchMovie(String)
+    +endMovie()
+}
+
+class StudyFacade{
+    amp:Amplifier
+    tuner:Tuner
+    mp3:Mp3Player
+    lights:StudyLifhts
+    lamp:DeskLamp
+    labtop:LabTop
+    phone:MobilePhone
+    +StudyFacade(Amplifier,Tuner,MP3Player,StudyLights,DeskLamp,LabTop,MobilePhone)
+    +beginStudy()
+    +endStudy()
+}
+
+
+HomeTheaterFacade <-up- Amplifier
+HomeTheaterFacade <-up- Tuner
+HomeTheaterFacade <-up- CdPlayer
+HomeTheaterFacade <-up- DvdPlayer
+HomeTheaterFacade <-up- Projector
+HomeTheaterFacade <-up- Screen
+HomeTheaterFacade <-up- TheaterLights
+
+StudyFacade <-up- Amplifier
+StudyFacade <-up- Tuner
+StudyFacade <-up- MP3Player
+StudyFacade <-up- LabTop
+StudyFacade <-up- DeskLamp
+StudyFacade <-up- MobilePhone
+StudyFacade <-up- StudyLights
+
+Amplifier -> Tuner
+Amplifier -> CdPlayer
+Amplifier -> DvdPlayer
+Amplifier -> MP3Player
+
