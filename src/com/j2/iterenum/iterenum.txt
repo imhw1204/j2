@@ -1,0 +1,16 @@
+class EnumerationIterator{
+    EnumerationIterator(Enumeration)
+    +hasNext():boolean
+    +next():Object
+    +remove():void
+}
+
+class IteratorEnumeration{
+    iterator:Iterator
+    IteratorEnueration(Iterator)
+    +hasMoreElement():boolean
+    +nextElement():Object
+}
+
+Iterator <|-- EnumerationIterator
+Enumeration <|-- IteratorEnumeration
