@@ -1,0 +1,30 @@
+%%plantuml
+@startuml
+interface java.util.Comparator{
+    +compare(T,T):int
+}
+
+class java.util.ArrayList{
+    sort(ArrayList, MyCompare()):void
+}
+
+class java.util.Collections{
+    collections
+}
+
+class Duck{
+    name:String
+    weight:int
+    +Duck(String, int)
+}
+
+class MyCompare{
+    @override
+    +comopare(Duck,Duck):int
+}
+
+java.util.Comparator <|.. MyCompare
+Duck <-- MyCompare
+Duck --> java.util.ArrayList
+Duck --> java.util.Collections
+@enduml
