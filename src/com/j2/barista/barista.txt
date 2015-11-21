@@ -1,0 +1,55 @@
+%%plantuml
+@startuml
+abstract class CaffeineBeverage{
+    final prepareRecipe():void
+    abstract brew():void
+    abstract addComdiments():void
+    +boilWater():void
+    +pourInCup():void
+}
+
+class Coffee{
+    +brew():void
+    +addCondiments():void
+}
+
+class Tea{
+    +brew():void
+    +addCondiments():void
+}
+
+abstract class CaffeineBeverageWithHook{
+    prepareRecipe():void
+    abstract brew():void
+    abstract addCondiments():void
+    boilWater():void
+    pourInCup():void
+    customerWantsCondiments:boolean
+}
+
+class CoffeeWithHook{
+    +brew():void
+    +condiments():void
+    +customerWantsCondiments():boolean
+}
+
+class TeaWithHook{
+    +brew():void
+    +condiments():void
+    +customerWantsCondiments():boolean
+}
+
+class CaramelMacchiatoWithHook{
+    +brew():void
+    +condiments():void
+    +customerWantsCondiments():boolean
+}
+
+CaffeineBeverage <|-- Coffee
+CaffeineBeverage <|-- Tea
+
+CaffeineBeverageWithHook <|-- CoffeeWithHook
+CaffeineBeverageWithHook <|-- TeaWithHook
+CaffeineBeverageWithHook <|-- CaramelMacchiatoWithHook
+
+@enduml
