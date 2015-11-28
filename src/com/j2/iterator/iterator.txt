@@ -1,0 +1,56 @@
+%%plantuml
+@startuml
+interface Iterator {
+    hasNext():boolean
+    next():Object
+}
+interface Menu {
+    +createIterator:Iterator
+}
+class PancakeHouseMenuIterator {
+    -items:ArrayList
+    -position:int
+    +PancakeHouseMenuIterator(ArrayList)
+    +next():Object
+    +hasNext():boolean
+}
+class PancakeHouseMenu {
+    -menuItems:ArrayList
+    +PancakeHouseMenu():void
+    +addItem(String,String,boolean,double):void
+    +getMenuItems():ArrayList
+    +createIterator():Iterator
+}
+class MenuItem {
+    +MenuItem(String,String,boolean,double)
+    +getName():String
+    +getDescription():String
+    +getPrice():duble
+    +isVegetarian():boolean
+    +toString():String
+}
+class DinerMenuIterator {
+    -items:MenuItem[]
+    -position:int
+    +DinerMenuIterator(MenuItem[])
+    +next():Object
+    +hasNext():boolean
+}
+class DinerMenu {
+    -static final MAX_ITEMS=9:int
+    -numberOfItems:int
+    -menuItems:MenuItem[]
+    +DinerMenu():void
+    +addItem(String,String,boolean,boolean,double):void
+    +getMenuItems():MenuItem[]
+    +createIterator():Iterator
+}
+
+Menu .left.> Iterator
+Menu <|.. PancakeHouseMenu
+Iterator <|.. PancakeHouseMenuIterator
+Menu <|.. DinerMenu
+Iterator <|.. DinerMenuIterator
+DinerMenu --> MenuItem
+DinerMenuIterator --> MenuItem
+@enduml
