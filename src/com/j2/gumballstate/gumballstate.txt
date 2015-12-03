@@ -1,0 +1,91 @@
+%%plantuml
+@startuml
+interface State{
+    +insertQuarter():void
+    +ejectQuarter():void
+    +turnCrank():void
+    +dispense():void
+    +error():void
+}
+
+class GumballMachine{
+    hasQuarterState:State
+    noQuarterState:State
+    soldState:State
+    soldOutState:State
+    breakDownState:State
+    state:State
+    count:int
+    +GumballMachine(int)
+    +insertQuarter():void
+    +ejectQuarter():void
+    +turnCrank():void
+    +error():void
+    +releaseBall():void
+    +trouble():void
+    +getCOunt():int
+    +setState(State):void
+    +getState():State
+    +getHasQuarterState():State
+    +getSoldOutState():State
+    +getBreakDownState():State
+    +toString():String
+}
+
+class HasQuarterState{
+    gm:GumballMachine
+    +HasQuarterState(GumballMachine)
+    +insertQuarter():void
+    +ejectQuarter():void
+    +turnCrank():void
+    +dispense():void
+    +error():void
+}
+
+class NoQuarterState{
+    gm:GumballMachine
+    +NoQuarterState(GumballMachine)
+    +insertQuarter():void
+    +ejectQuarter():void
+    +turnCrank():void
+    +dispense():void
+    +error():void
+}
+
+class SoldOutState{
+    gm:GumballMachine
+    +SoldOutState(GumballMachine)
+    +insertQuarter():void
+    +ejectQuarter():void
+    +turnCrank():void
+    +dispense():void
+    +error():void
+}
+
+class SoldState{
+    gm:GumballMachine
+    +SoldState(GumballMachine)
+    +insertQuarter():void
+    +ejectQuarter():void
+    +turnCrank():void
+    +dispense():void
+    +error():void
+}
+
+class BreakDownState{
+    gm:GumballMachine
+    +BreakDownState(GumballMachine)
+    +insertQuarter():void
+    +ejectQuarter():void
+    +turnCrank():void
+    +dispense():void
+    +error():void
+}
+
+State <|-- HasQuarterState
+State <|-- NoQuarterState
+State <|-- SoldOutState
+State <|-- SoldState
+State <|-- BreakDownState
+State <-right- GumballMachine
+@enduml
