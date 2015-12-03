@@ -1,0 +1,55 @@
+%%plantuml
+@startuml
+interface State{
+    +pause():void
+    +sleep():void
+    +noSleep():void
+}
+
+class Player{
+    playState:State
+    endState:State
+    offState:State
+    state:State
+    +Player()
+    +pause():void
+    +sleep():void
+    +noSleep():void
+    +setState(State):void
+    +getState():State
+    +getPlayState():State
+    +getOffState():State
+    +getEndState():State
+    +String():toString
+}
+
+class PlayState{
+    player:Player
+    +PlayState(Player)
+    +pause():void
+    +sleep():void
+    +noSleep():void
+}
+
+class EndState{
+    player:Player
+    +EndState(Player)
+    +pause():void
+    +sleep():void
+    +noSleep():void
+}
+
+class OffState{
+    player:Player
+    +PlayState(Player)
+    +pause():void
+    +sleep():void
+    +noSleep():void
+}
+
+State <|-- PlayState
+State <|-- EndState
+State <|-- OffState
+State <-right- Player
+
+@enduml
